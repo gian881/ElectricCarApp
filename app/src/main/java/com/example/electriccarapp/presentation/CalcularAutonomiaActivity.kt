@@ -6,12 +6,15 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.electriccarapp.R
+import java.text.DecimalFormat
+import java.util.Locale
 
 class CalcularAutonomiaActivity : AppCompatActivity() {
     lateinit var preco: EditText
     lateinit var kmPercorridos: EditText
     lateinit var resultado: TextView
     lateinit var btnEnviar: Button
+    val numberFormatter = DecimalFormat.getCurrencyInstance(Locale("pt", "BR"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +36,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
             val kmPercorridoValue = kmPercorridos.text.toString().toFloat()
 
             val result = precoValue / kmPercorridoValue
-
-            resultado.text = result.toString()
+            resultado.text = numberFormatter.format(result)
         }
     }
 

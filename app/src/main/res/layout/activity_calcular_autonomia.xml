@@ -7,12 +7,12 @@
 
     <TextView
         android:id="@+id/tv_titulo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/calcular_autonomia_title"
         android:textSize="32sp"
-        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,11 +24,13 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/custom_input"
         android:elevation="2dp"
+        android:fontFamily="@font/poppins_regular"
         android:hint="@string/price_placeholder"
         android:inputType="numberDecimal"
         android:maxLength="10"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
 
@@ -40,11 +42,13 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:elevation="2dp"
+        android:fontFamily="@font/poppins_regular"
         android:hint="@string/km_percorrido"
         android:inputType="numberDecimal"
         android:maxLength="10"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_preco_kwh" />
 
@@ -54,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/blue"
+        android:fontFamily="@font/poppins_semibold"
         android:paddingVertical="8dp"
         android:text="@string/send"
         android:textAllCaps="true"
@@ -68,6 +73,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/result"
         android:textSize="20sp"
+        android:fontFamily="@font/poppins_regular"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_enviar" />
 
@@ -78,7 +84,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="24dp"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintLeft_toRightOf="@id/tv_resultado_label"
         app:layout_constraintTop_toBottomOf="@id/btn_enviar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
