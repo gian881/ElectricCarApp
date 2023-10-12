@@ -18,6 +18,7 @@
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -81,8 +82,8 @@
         android:fontFamily="@font/poppins_semibold"
         android:paddingVertical="8dp"
         android:text="@string/send"
-        android:textColor="@color/white"
         android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_km_percorrido" />
