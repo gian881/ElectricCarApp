@@ -5,7 +5,12 @@
     <string name="calcular_autonomia_title">Calculate Autonomy</string>
     <string name="cars">Cars</string>
     <string name="favorites">Favorites</string>
-    <string name="price">kWh price</string>
+    <string name="price_placeholder">kWh price</string>
     <string name="km_percorrido">Km Traveled</string>
     <string name="result">"Result:  "</string>
+    <string name="car_image_description">Picture of the car Audi e-tron</string>
+    <string name="price">Price</string>
+    <string name="battery">Battery</string>
+    <string name="potency">Potency</string>
+    <string name="recharge">Recharge</string>
 </resources>
