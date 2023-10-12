@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Carros Elétricos</string>
+    <string name="send">Enviar</string>
+    <string name="main_title" translatable="false">Electric Car</string>
+    <string name="calcular_autonomia_title">Calcular Autonomia</string>
+    <string name="cars">Carros</string>
+    <string name="favorites">Favoritos</string>
+    <string name="price">Preço kWh</string>
+    <string name="km_percorrido">Km Percorrido</string>
+    <string name="result">"Resultado: "</string>
+</resources>

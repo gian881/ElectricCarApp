@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Electric Cars</string>
+    <string name="send">Send</string>
+    <string name="calcular_autonomia_title">Calculate Autonomy</string>
+    <string name="cars">Cars</string>
+    <string name="favorites">Favorites</string>
+    <string name="price">kWh price</string>
+    <string name="km_percorrido">Km Traveled</string>
+    <string name="result">"Result:  "</string>
+</resources>
