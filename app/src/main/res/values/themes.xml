@@ -2,8 +2,22 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ElectricCarApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryContainer">@color/blue</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        
     </style>
 
     <style name="Theme.ElectricCarApp" parent="Base.Theme.ElectricCarApp" />
+
+    <style name="my_custom_tab_text">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="my_custom_tab_text.selected">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
 </resources>
