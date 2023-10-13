@@ -3,11 +3,8 @@ package com.example.electriccarapp.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.electriccarapp.R
-import com.example.electriccarapp.data.CarFactory
-import com.example.electriccarapp.ui.adapter.CarAdapter
 import com.example.electriccarapp.ui.adapter.TabsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout

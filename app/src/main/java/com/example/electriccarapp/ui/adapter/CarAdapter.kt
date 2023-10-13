@@ -10,7 +10,7 @@ import com.example.electriccarapp.domain.Car
 import java.text.DecimalFormat
 import java.util.Locale
 
-class CarAdapter(private val cars: Array<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
+class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.car_item, parent, false)
         return ViewHolder(view)

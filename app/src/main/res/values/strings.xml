@@ -14,4 +14,6 @@
     <string name="battery">Bateria</string>
     <string name="potency">Potência</string>
     <string name="recharge">Recarga</string>
+    <string name="no_connection">Parece que você está sem internet. Tente novamente mais tarde!</string>
+    <string name="no_connection_description">Ícone de WiFi cortado</string>
 </resources>
