@@ -16,4 +16,5 @@
     <string name="recharge">Recarga</string>
     <string name="no_connection">Parece que você está sem internet. Tente novamente mais tarde!</string>
     <string name="no_connection_description">Ícone de WiFi cortado</string>
+    <string name="response_error">Algo deu errado. Tente novamente mais tarde!</string>
 </resources>

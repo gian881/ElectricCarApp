@@ -13,14 +13,21 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.electriccarapp.ui.adapter.CarAdapter
 import com.example.electriccarapp.R
+import com.example.electriccarapp.data.CarsApi
 import com.example.electriccarapp.domain.Car
 import org.json.JSONArray
 import org.json.JSONTokener
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -29,6 +36,7 @@ class CarFragment : Fragment() {
     lateinit var progressBar: ProgressBar
     lateinit var noConnectionImage: ImageView
     lateinit var noConnectionText: TextView
+    lateinit var carsApi: CarsApi
 
     var carsArray: ArrayList<Car> = ArrayList()
     override fun onCreateView(
@@ -42,21 +50,50 @@ class CarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView(view)
-        setupList()
-        if (checkForInternet(context)) {
-            runTask()
-        } else {
-            emptyState()
-        }
+        setupRetrofit()
     }
 
     override fun onResume() {
         super.onResume()
         if (checkForInternet(context)) {
-            runTask()
+            getAllCars()
         } else {
             emptyState()
         }
+    }
+
+    private fun setupRetrofit() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://gian881.github.io/data/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        carsApi = retrofit.create(CarsApi::class.java)
+    }
+
+    private fun getAllCars() {
+        carsApi.getAllCars().enqueue(object : Callback<List<Car>> {
+            override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
+                if (response.isSuccessful) {
+                    progressBar.isVisible = false
+                    noConnectionImage.isVisible = false
+                    noConnectionText.isVisible = false
+                    response.body()?.let {
+                        setupList(it)
+                    }
+                } else {
+                    Toast.makeText(
+                        context, R.string.response_error, Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+
+            override fun onFailure(call: Call<List<Car>>, t: Throwable) {
+                Toast.makeText(
+                    context, R.string.response_error, Toast.LENGTH_LONG
+                ).show()
+            }
+
+        })
     }
 
     private fun emptyState() {
@@ -80,8 +117,8 @@ class CarFragment : Fragment() {
         }
     }
 
-    private fun setupList() {
-        val adapter = CarAdapter(carsArray)
+    private fun setupList(cars: List<Car>) {
+        val adapter = CarAdapter(cars)
         listaCarros.adapter = adapter
         listaCarros.isVisible = true
     }
@@ -175,7 +212,7 @@ class CarFragment : Fragment() {
                 progressBar.isVisible = false
                 noConnectionImage.isVisible = false
                 noConnectionText.isVisible = false
-                setupList()
+                // setupList()
             } catch (e: Exception) {
                 Log.e("Erro", e.toString())
             }

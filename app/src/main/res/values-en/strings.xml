@@ -15,4 +15,5 @@
     <string name="recharge">Recharge</string>
     <string name="no_connection">It seems that you have no internet connection. Try again later!</string>
     <string name="no_connection_description">WiFi icon cut out</string>
+    <string name="response_error">Something went wrong. Try again later!</string>
 </resources>
