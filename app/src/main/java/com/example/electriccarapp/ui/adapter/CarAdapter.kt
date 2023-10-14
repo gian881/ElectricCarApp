@@ -7,18 +7,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.electriccarapp.R
+import com.example.electriccarapp.data.local.CarRepository
 import com.example.electriccarapp.domain.Car
 import java.text.DecimalFormat
 import java.util.Locale
 
 class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
-
-    var carItemListener: (Car) -> Unit = {
-
-    }
+    private lateinit var carsRepository: CarRepository
+    var onFavoriteToggle: (Car, Int) -> Unit = { car, position -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.car_item, parent, false)
+        carsRepository = CarRepository(view.context)
         return ViewHolder(view)
     }
 
@@ -40,18 +40,22 @@ class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.
         holder.carName.text = cars[position].name
         holder.favorite.setOnClickListener {
             val car = cars[position]
-            carItemListener(car)
             toggleFavorite(car, holder)
+            onFavoriteToggle(car, position)
+        }
+
+        if (cars[position].isFavorite) {
+            holder.favorite.setImageResource(R.drawable.ic_star_fill)
         }
     }
 
     private fun toggleFavorite(car: Car, holder: ViewHolder) {
-        car.isFavorite = !car.isFavorite
-
         if (car.isFavorite) {
-            holder.favorite.setImageResource(R.drawable.ic_star_fill)
-        } else {
             holder.favorite.setImageResource(R.drawable.ic_star_outline)
+            carsRepository.delete(car.id)
+        } else {
+            holder.favorite.setImageResource(R.drawable.ic_star_fill)
+            carsRepository.saveIfNotExists(car)
         }
     }
 

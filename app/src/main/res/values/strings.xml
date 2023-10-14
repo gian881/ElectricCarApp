@@ -19,4 +19,6 @@
     <string name="response_error">Algo deu errado. Tente novamente mais tarde!</string>
     <string name="saved_calc" translatable="false">saved_calc</string>
     <string name="star_description">Favorito</string>
+    <string name="no_favorites">Você não tem nenhum carro favorito ainda</string>
+    <string name="no_favorites_description">Cara triste</string>
 </resources>

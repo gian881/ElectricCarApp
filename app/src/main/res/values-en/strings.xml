@@ -17,4 +17,6 @@
     <string name="no_connection_description">WiFi icon cut out</string>
     <string name="response_error">Something went wrong. Try again later!</string>
     <string name="star_description">Favorite</string>
+    <string name="no_favorites">You don\'t have any favorite car yet</string>
+    <string name="no_favorites_description">Sad face</string>
 </resources>

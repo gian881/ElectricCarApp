@@ -11,6 +11,7 @@ import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_P
 import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_POTENCY
 import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_PRICE
 import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_RECHARGE_TIME
+import com.example.electriccarapp.data.local.CarsContract.CarEntry.TABLE_NAME
 import com.example.electriccarapp.domain.Car
 
 class CarRepository(private val context: Context) {
@@ -60,7 +61,7 @@ class CarRepository(private val context: Context) {
         val filterValues = arrayOf(id.toString())
 
         val cursor = db.query(
-            CarsContract.CarEntry.TABLE_NAME,
+            TABLE_NAME,
             columns,
             filter,
             filterValues,
@@ -165,6 +166,33 @@ class CarRepository(private val context: Context) {
         cursor.close()
 
         return cars
+    }
+
+    fun delete(id: Int): Boolean {
+        var rowsAffected: Int? = 0
+        try {
+            val dbHelper = CarsDBHelper(context)
+            val db = dbHelper.writableDatabase
+
+            val where = "$COLUMN_NAME_CAR_ID = ?"
+            val whereArgs = arrayOf(id.toString())
+
+            rowsAffected = db?.delete(
+                TABLE_NAME,
+                where,
+                whereArgs
+            )
+
+        } catch (e: Exception) {
+            e.message?.let {
+                Log.e("Error", it)
+            }
+        }
+
+        if (rowsAffected == 0 || rowsAffected == null) {
+            return false
+        }
+        return true
     }
 
     companion object {

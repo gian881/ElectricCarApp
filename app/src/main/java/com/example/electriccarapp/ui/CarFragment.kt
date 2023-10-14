@@ -89,6 +89,14 @@ class CarFragment : Fragment() {
                     noConnectionImage.isVisible = false
                     noConnectionText.isVisible = false
                     response.body()?.let {
+                        val carRepository = CarRepository(requireContext())
+
+                        for (car in it) {
+                            val carFound = carRepository.findCarById(car.id)
+                            if (carFound.id != CarRepository.ID_WHEN_NO_CAR_IS_FOUND) {
+                                car.isFavorite = true
+                            }
+                        }
                         setupList(it)
                     }
                 } else {
@@ -132,10 +140,6 @@ class CarFragment : Fragment() {
         val adapter = CarAdapter(cars)
         listaCarros.adapter = adapter
         listaCarros.isVisible = true
-
-        adapter.carItemListener = { car ->
-            val wasSaved = CarRepository(requireContext()).saveIfNotExists(car)
-        }
     }
 
     private fun checkForInternet(context: Context?): Boolean {
