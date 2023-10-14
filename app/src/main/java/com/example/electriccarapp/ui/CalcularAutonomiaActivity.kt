@@ -1,5 +1,6 @@
 package com.example.electriccarapp.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -35,7 +36,7 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        btnVoltar.setOnClickListener{
+        btnVoltar.setOnClickListener {
             finish()
         }
         btnEnviar.setOnClickListener {
@@ -47,13 +48,20 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
 
                 resultado.text = numberFormatter.format(result)
 
+                saveSharedPref(result)
             } catch (e: NumberFormatException) {
                 // TODO: Mostrar um erro que os valores estão vazios
             } catch (e: ArithmeticException) {
                 // TODO: Mostrar um erro de divisão por 0
             }
-
         }
     }
 
+    private fun saveSharedPref(result: Float) {
+        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
+        with(sharedPref.edit()) {
+            putFloat(getString(R.string.saved_calc), result)
+            apply()
+        }
+    }
 }
