@@ -18,4 +18,5 @@
     <string name="no_connection_description">Ícone de WiFi cortado</string>
     <string name="response_error">Algo deu errado. Tente novamente mais tarde!</string>
     <string name="saved_calc" translatable="false">saved_calc</string>
+    <string name="star_description">Favorito</string>
 </resources>

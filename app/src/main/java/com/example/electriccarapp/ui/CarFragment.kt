@@ -121,6 +121,10 @@ class CarFragment : Fragment() {
         val adapter = CarAdapter(cars)
         listaCarros.adapter = adapter
         listaCarros.isVisible = true
+
+        adapter.carItemListener= {car ->
+
+        }
     }
 
     private fun checkForInternet(context: Context?): Boolean {
@@ -204,7 +208,8 @@ class CarFragment : Fragment() {
                         battery,
                         potency,
                         rechargeTime,
-                        photoUrl
+                        photoUrl,
+                        isFavorite = false
                     )
 
                     carsArray.add(car)

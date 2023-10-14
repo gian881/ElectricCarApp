@@ -11,7 +11,8 @@ object CarFactory {
             battery = 300F,
             potency = 200,
             rechargeTime = 30,
-            photoUrl = ""
+            photoUrl = "",
+            isFavorite = false
         )
     )
 
