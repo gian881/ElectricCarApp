@@ -25,6 +25,10 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calcular_autonomia)
         setupView()
         setupListeners()
+        val valor = getSharedPref()
+        if (valor != 0f) {
+            resultado.text = numberFormatter.format(valor)
+        }
     }
 
     private fun setupView() {
@@ -63,5 +67,10 @@ class CalcularAutonomiaActivity : AppCompatActivity() {
             putFloat(getString(R.string.saved_calc), result)
             apply()
         }
+    }
+
+    private fun getSharedPref(): Float {
+        val sharedPref = getPreferences(Context.MODE_PRIVATE)
+        return sharedPref.getFloat(getString(R.string.saved_calc), 0f)
     }
 }
