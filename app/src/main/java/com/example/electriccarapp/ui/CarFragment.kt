@@ -1,6 +1,5 @@
 package com.example.electriccarapp.ui
 
-import android.content.ContentValues
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -22,15 +21,6 @@ import com.example.electriccarapp.ui.adapter.CarAdapter
 import com.example.electriccarapp.R
 import com.example.electriccarapp.data.CarsApi
 import com.example.electriccarapp.data.local.CarRepository
-import com.example.electriccarapp.data.local.CarsContract
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_BATTERY
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_NAME
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_PHOTO_URL
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_POTENCY
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_PRICE
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.COLUMN_NAME_RECHARGE_TIME
-import com.example.electriccarapp.data.local.CarsContract.CarEntry.TABLE_NAME
-import com.example.electriccarapp.data.local.CarsDBHelper
 import com.example.electriccarapp.domain.Car
 import org.json.JSONArray
 import org.json.JSONTokener
